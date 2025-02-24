@@ -29,12 +29,15 @@ const Register = () => {
   const validate = () => {
     const formErrors: Errors = {};
 
-    if (!formData.username) formErrors.username = "Username is required.";
-    if (!formData.email) formErrors.email = "Email is required.";
-    else if (!/\S+@\S+\.\S+/.test(formData.email)) formErrors.email = "Please enter a valid email (e.g. user@example.com).";
-    if (!formData.password) formErrors.password = "Password is required.";
-    else if (formData.password.length < 6) formErrors.password = "Password must be at least 6 characters.";
-    if (formData.password !== formData.confirmPassword) formErrors.confirmPassword = "Passwords do not match.";
+    if (!formData.username) formErrors.username = 'Username is required.';
+    if (!formData.email) formErrors.email = 'Email is required.';
+    else if (!/\S+@\S+\.\S+/.test(formData.email))
+      formErrors.email = 'Please enter a valid email (e.g. user@example.com).';
+    if (!formData.password) formErrors.password = 'Password is required.';
+    else if (formData.password.length < 6)
+      formErrors.password = 'Password must be at least 6 characters.';
+    if (formData.password !== formData.confirmPassword)
+      formErrors.confirmPassword = 'Passwords do not match.';
 
     setErrors(formErrors);
   };
@@ -65,7 +68,7 @@ const Register = () => {
     e.preventDefault();
     validate();
     if (Object.keys(errors).length === 0) {
-      console.log("Form data is valid. Submitting...");
+      console.log('Form data is valid. Submitting...');
     }
   };
 
@@ -74,7 +77,9 @@ const Register = () => {
       <h2 className="text-2xl font-semibold mb-6">Create Account</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
+          <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+            Username
+          </label>
           <input
             type="text"
             id="username"
@@ -84,10 +89,14 @@ const Register = () => {
             onBlur={handleBlur}
             className="mt-2 p-2 w-full border border-gray-300 rounded-md"
           />
-          {touched.username && errors.username && <p className="text-red-500 text-sm">{errors.username}</p>}
+          {touched.username && errors.username && (
+            <p className="text-red-500 text-sm">{errors.username}</p>
+          )}
         </div>
         <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            Email
+          </label>
           <input
             type="email"
             id="email"
@@ -100,7 +109,9 @@ const Register = () => {
           {touched.email && errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
         </div>
         <div className="mb-4">
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+          <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            Password
+          </label>
           <input
             type="password"
             id="password"
@@ -110,10 +121,14 @@ const Register = () => {
             onBlur={handleBlur}
             className="mt-2 p-2 w-full border border-gray-300 rounded-md"
           />
-          {touched.password && errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
+          {touched.password && errors.password && (
+            <p className="text-red-500 text-sm">{errors.password}</p>
+          )}
         </div>
         <div className="mb-4">
-          <label htmlFor="confirm-password" className="block text-sm font-medium text-gray-700">Confirm Password</label>
+          <label htmlFor="confirm-password" className="block text-sm font-medium text-gray-700">
+            Confirm Password
+          </label>
           <input
             type="password"
             id="confirm-password"
@@ -123,12 +138,24 @@ const Register = () => {
             onBlur={handleBlur}
             className="mt-2 p-2 w-full border border-gray-300 rounded-md"
           />
-          {touched.confirmPassword && errors.confirmPassword && <p className="text-red-500 text-sm">{errors.confirmPassword}</p>}
+          {touched.confirmPassword && errors.confirmPassword && (
+            <p className="text-red-500 text-sm">{errors.confirmPassword}</p>
+          )}
         </div>
-        <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Register</button>
+        <button
+          type="submit"
+          className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+        >
+          Register
+        </button>
       </form>
       <div className="mt-4 text-center">
-        <p className="text-sm text-gray-600">Already have an account? <Link to="/login" className="text-blue-600 hover:underline">Login here</Link></p>
+        <p className="text-sm text-gray-600">
+          Already have an account?{' '}
+          <Link to="/login" className="text-blue-600 hover:underline">
+            Login here
+          </Link>
+        </p>
       </div>
     </div>
   );

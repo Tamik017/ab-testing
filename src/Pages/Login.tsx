@@ -23,9 +23,10 @@ const Login = () => {
   const validate = () => {
     const formErrors: Errors = {};
 
-    if (!formData.loginOrEmail) formErrors.loginOrEmail = "Login or Email is required.";
-    if (!formData.password) formErrors.password = "Password is required.";
-    else if (formData.password.length < 6) formErrors.password = "Password must be at least 6 characters.";
+    if (!formData.loginOrEmail) formErrors.loginOrEmail = 'Login or Email is required.';
+    if (!formData.password) formErrors.password = 'Password is required.';
+    else if (formData.password.length < 6)
+      formErrors.password = 'Password must be at least 6 characters.';
 
     setErrors(formErrors);
   };
@@ -55,7 +56,7 @@ const Login = () => {
     e.preventDefault();
     validate();
     if (Object.keys(errors).length === 0) {
-      console.log("Form data is valid. Submitting...");
+      console.log('Form data is valid. Submitting...');
     }
   };
 
@@ -64,7 +65,9 @@ const Login = () => {
       <h2 className="text-2xl font-semibold mb-6">Login</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="loginOrEmail" className="block text-sm font-medium text-gray-700">Login or Email</label>
+          <label htmlFor="loginOrEmail" className="block text-sm font-medium text-gray-700">
+            Login or Email
+          </label>
           <input
             type="text"
             id="loginOrEmail"
@@ -79,7 +82,9 @@ const Login = () => {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+          <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            Password
+          </label>
           <input
             type="password"
             id="password"
@@ -93,10 +98,20 @@ const Login = () => {
             <p className="text-red-500 text-sm">{errors.password}</p>
           )}
         </div>
-        <button type="submit" className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Login</button>
+        <button
+          type="submit"
+          className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+        >
+          Login
+        </button>
       </form>
       <div className="mt-4 text-center">
-        <p className="text-sm text-gray-600">Don't have an account? <Link to="/register" className="text-blue-600 hover:underline">Register here</Link></p>
+        <p className="text-sm text-gray-600">
+          Don't have an account?{' '}
+          <Link to="/register" className="text-blue-600 hover:underline">
+            Register here
+          </Link>
+        </p>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ interface State {
 }
 
 const initialState: State = {
-  tests: []
+  tests: [],
 };
 
 interface Action {
